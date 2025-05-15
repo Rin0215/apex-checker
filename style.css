@@ -209,3 +209,45 @@ button:hover {
     margin-bottom: 15px;
   }
 }
+
+/* SEO関連の追加スタイル */
+.subtitle {
+  display: block;
+  font-size: 16px;
+  color: #f04e4e;
+  margin-top: 5px;
+}
+
+.seo-text {
+  position: absolute;
+  left: -9999px;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+/* モバイル用の見出し調整 */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+}
+
+/* セマンティックなHTMLタグ用スタイル */
+main {
+  display: block;
+}
+article {
+  margin-bottom: 20px;
+}
+
+/* 読み込み速度最適化 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
