@@ -96,7 +96,7 @@ button:hover {
     font-size: 16px;
   }
 }
-/* 共有ボタンスタイル */
+/* 更新後の共有ボタンスタイル */
 .share-buttons {
   display: flex;
   justify-content: center;
@@ -113,32 +113,40 @@ button:hover {
   color: white;
   text-decoration: none;
   font-size: 14px;
-  transition: opacity 0.3s;
+  transition: all 0.3s;
+  min-width: 110px; /* ボタン幅を統一 */
+  height: 36px; /* 高さを統一 */
+  box-sizing: border-box;
 }
 
 .share-btn:hover {
-  opacity: 0.8;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .share-btn img {
-  width: 16px;
-  height: 16px;
-  margin-right: 5px;
+  width: 18px; /* アイコンサイズ統一 */
+  height: 18px; /* アイコンサイズ統一 */
+  margin-right: 6px;
 }
 
-.share-twitter {
-  background-color: #1DA1F2;
+/* X（旧Twitter）ボタン */
+.share-x {
+  background-color: #000000;
+  border: 1px solid #333;
 }
 
+/* LINEボタン */
 .share-line {
   background-color: #06C755;
 }
 
+/* コピーボタン */
 .share-copy {
   background-color: #6c757d;
 }
 
-/* ツールチップ */
+/* ツールチップスタイル（変更なし） */
 .tooltip {
   position: relative;
   display: inline-block;

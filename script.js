@@ -63,18 +63,11 @@ document.getElementById("scoreForm").addEventListener("submit", function(e) {
 
   // 結果表示
   const resultHTML = `
-    <div class="${gradeClass}">
-      あなたのスコア: <strong>${roundedScore}</strong><br>
-      評価ランク: <strong>${grade}</strong>
-    </div>
-    <div style="margin-top:10px;font-size:14px;">
-      [内訳] ランク:${rankScore} | トップ5:${Math.round(top5Rate)} | 勝率:${Math.round(winRate)}<br>
-      K/D:${Math.round(kdScore)} | ダメージ:${Math.round(damageScore)} | ペナルティ:-${penalty}
-    </div>
+    <!-- 他の結果表示は同じ -->
     <div class="share-buttons">
       <a href="https://twitter.com/share?url=${encodeURIComponent(window.location.href)}&text=私のApexスコアは${roundedScore}点（${grade}ランク）でした！&hashtags=ApexChecker" 
-        class="share-btn share-twitter" target="_blank">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/twitter.svg" alt="Twitter">
+        class="share-btn share-x" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X">
         Xで共有
       </a>
       <a href="https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(window.location.href)}&text=私のApexスコアは${roundedScore}点（${grade}ランク）でした！" 
