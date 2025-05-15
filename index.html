@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex 強さチェッカー</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Apex Legends 強さチェッカー</h1>
+    <form id="scoreForm">
+      <label for="rank">現在のランク:</label>
+      <select id="rank" required>
+        <option value="0">ブロンズ</option>
+        <option value="20">シルバー</option>
+        <option value="40">ゴールド</option>
+        <option value="60">プラチナ</option>
+        <option value="80">ダイヤモンド</option>
+        <option value="100">マスター</option>
+        <option value="120">プレデター</option>
+      </select>
+
+      <label for="top5">合計トップ5入り回数:</label>
+      <input type="number" id="top5" min="0" required />
+
+      <label for="wins">合計勝利数:</label>
+      <input type="number" id="wins" min="0" required />
+
+      <label for="games">合計ゲーム数:</label>
+      <input type="number" id="games" min="1" required />
+
+      <label for="kd">K/D比:</label>
+      <input type="number" step="0.01" id="kd" min="0" required />
+
+      <label for="avgDamage">平均ダメージ:</label>
+      <input type="number" step="1" id="avgDamage" min="0" required />
+
+      <button type="submit">スコアを計算</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
