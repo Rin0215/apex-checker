@@ -61,26 +61,33 @@ document.getElementById("scoreForm").addEventListener("submit", function(e) {
   else if (roundedScore >= 100) { grade = 'E'; gradeClass = 'e'; }
   else { grade = 'F'; gradeClass = 'f'; }
 
-  // 結果表示
+  // 結果表示HTML（共有部分のみ抜粋）の部分を以下のように修正
   const resultHTML = `
-    <!-- 他の結果表示は同じ -->
-    <div class="share-buttons">
-      <a href="https://twitter.com/share?url=${encodeURIComponent(window.location.href)}&text=私のApexスコアは${roundedScore}点（${grade}ランク）でした！&hashtags=ApexChecker" 
-        class="share-btn share-x" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X">
-        Xで共有
-      </a>
-      <a href="https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(window.location.href)}&text=私のApexスコアは${roundedScore}点（${grade}ランク）でした！" 
-        class="share-btn share-line" target="_blank">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/line.svg" alt="LINE">
-        LINEで共有
-      </a>
-      <div class="tooltip">
-        <button onclick="copyToClipboard()" class="share-btn share-copy">
+    <div class="${gradeClass}">
+      あなたのスコア: <strong>${roundedScore}</strong><br>
+      評価ランク: <strong>${grade}</strong>
+    </div>
+    <div style="margin-top:10px;font-size:14px;">
+      [内訳] ランク:${rankScore} | トップ5:${Math.round(top5Rate)} | 勝率:${Math.round(winRate)}<br>
+      K/D:${Math.round(kdScore)} | ダメージ:${Math.round(damageScore)} | ペナルティ:-${penalty}
+    </div>
+    <div class="share-section">
+      <span class="share-label">共有</span>
+      <div class="share-buttons">
+        <a href="https://twitter.com/share?url=${encodeURIComponent(window.location.href)}&text=私のApexスコアは${roundedScore}点（${grade}ランク）でした！&hashtags=ApexChecker" 
+          class="share-icon share-x" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X">
+          <span class="tooltip-text">Xにシェア</span>
+        </a>
+        <a href="https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(window.location.href)}&text=私のApexスコアは${roundedScore}点（${grade}ランク）でした！" 
+          class="share-icon share-line" target="_blank">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/line.svg" alt="LINE">
+          <span class="tooltip-text">LINEにシェア</span>
+        </a>
+        <div class="share-icon share-copy" onclick="copyToClipboard()">
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/clipboard.svg" alt="Copy">
-          リンクコピー
-        </button>
-        <span class="tooltiptext">コピーしました！</span>
+          <span class="tooltip-text">クリップボードにコピー</span>
+        </div>
       </div>
     </div>
   `;

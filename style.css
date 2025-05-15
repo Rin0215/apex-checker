@@ -96,65 +96,68 @@ button:hover {
     font-size: 16px;
   }
 }
-/* 更新後の共有ボタンスタイル */
+
+/* 共有セクション全体 */
+.share-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.share-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #cccccc;
+}
+
+/* 共有アイコンボタン */
 .share-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 15px;
 }
 
-.share-btn {
-  display: inline-flex;
+.share-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 12px;
-  border-radius: 5px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
   transition: all 0.3s;
-  min-width: 110px; /* ボタン幅を統一 */
-  height: 36px; /* 高さを統一 */
-  box-sizing: border-box;
+  cursor: pointer;
 }
 
-.share-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+.share-icon:hover {
+  transform: scale(1.1);
 }
 
-.share-btn img {
-  width: 18px; /* アイコンサイズ統一 */
-  height: 18px; /* アイコンサイズ統一 */
-  margin-right: 6px;
+.share-icon img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(1);
 }
 
-/* X（旧Twitter）ボタン */
+/* X（Twitter）アイコン */
 .share-x {
   background-color: #000000;
-  border: 1px solid #333;
 }
 
-/* LINEボタン */
+/* LINEアイコン */
 .share-line {
   background-color: #06C755;
 }
 
-/* コピーボタン */
+/* コピーアイコン */
 .share-copy {
   background-color: #6c757d;
-}
-
-/* ツールチップスタイル（変更なし） */
-.tooltip {
   position: relative;
-  display: inline-block;
 }
 
-.tooltip .tooltiptext {
+/* ツールチップのスタイルを修正 */
+.tooltip-text {
   visibility: hidden;
-  width: 120px;
+  width: 100px;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -162,14 +165,47 @@ button:hover {
   padding: 5px;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
+  bottom: 120%;
   left: 50%;
-  margin-left: -60px;
+  transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s;
+  font-size: 12px;
 }
 
-.tooltip:hover .tooltiptext {
+/* すべての共有アイコンにホバー時のツールチップ表示を適用 */
+.share-icon:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+/* 説明画像スタイル */
+.info-image {
+  margin: 0 auto 20px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #2c2c3f;
+}
+
+.info-image img {
+  max-width: 100%;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
+}
+
+.image-caption {
+  font-size: 12px;
+  color: #cccccc;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 480px) {
+  .info-image {
+    padding: 8px;
+    margin-bottom: 15px;
+  }
 }
