@@ -72,7 +72,7 @@ document.getElementById("scoreForm").addEventListener("submit", function(e) {
       K/D:${Math.round(kdScore)} | ダメージ:${Math.round(damageScore)} | ペナルティ:-${penalty}
     </div>
     <div class="share-buttons">
-      <a href="https://twitter.com/share?url=${encodeURIComponent(window.location.href)}&text=私のApexスコアは${roundedScore}点（${grade}ランク）でした！&hashtags=ApexLegends" 
+      <a href="https://twitter.com/share?url=${encodeURIComponent(window.location.href)}&text=私のApexスコアは${roundedScore}点（${grade}ランク）でした！&hashtags=ApexChecker" 
         class="share-btn share-twitter" target="_blank">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/twitter.svg" alt="Twitter">
         Xで共有
