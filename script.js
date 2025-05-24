@@ -61,6 +61,12 @@ document.getElementById("scoreForm").addEventListener("submit", function(e) {
   else if (roundedScore >= 100) { grade = 'E'; gradeClass = 'e'; }
   else { grade = 'F'; gradeClass = 'f'; }
 
+  // スコアとランクを保存する
+  const scores = JSON.parse(localStorage.getItem('scores')) || []; // 今までの履歴を取得（なければ空配列）
+  scores.push({ score: roundedScore, grade: grade });              // 新しい結果を追加
+  localStorage.setItem('scores', JSON.stringify(scores));          // 保存する
+
+
   // 結果表示HTML（共有部分のみ抜粋）の部分を以下のように修正
   const resultHTML = `
     <div class="${gradeClass}">
@@ -93,6 +99,9 @@ document.getElementById("scoreForm").addEventListener("submit", function(e) {
   `;
   document.getElementById("result").innerHTML = resultHTML;
 
+  showAggregate(); // 保存されたスコアを集計して表示する
+
+
   // クリップボードコピー関数
   function copyToClipboard() {
     const el = document.createElement('textarea');
@@ -112,4 +121,29 @@ document.getElementById("scoreForm").addEventListener("submit", function(e) {
       tooltip.style.opacity = '0';
     }, 2000);
   }
+
+  function showAggregate() {
+    const scores = JSON.parse(localStorage.getItem('scores')) || [];
+    if (scores.length === 0) return;
+
+    const avg = Math.round(scores.reduce((sum, s) => sum + s.score, 0) / scores.length);
+
+    const gradeCounts = {};
+    for (const s of scores) {
+      gradeCounts[s.grade] = (gradeCounts[s.grade] || 0) + 1;
+    }
+
+    let gradeSummary = Object.entries(gradeCounts)
+      .map(([g, c]) => `${g}: ${c}回`)
+      .join(', ');
+
+    const summaryHTML = `
+      <div style="margin-top: 20px; font-size: 14px;">
+        <strong>これまでの平均スコア:</strong> ${avg}<br>
+        <strong>ランク分布:</strong> ${gradeSummary}
+      </div>
+    `;
+    document.getElementById("result").innerHTML += summaryHTML;
+  }
+
 });

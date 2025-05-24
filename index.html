@@ -22,6 +22,26 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/">
   <link rel="icon" href="favicon.ico" />
 
+  <!-- Firebase SDK（互換版） -->
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // ここにあなたの Firebase 設定を貼り付けてください（公式サイトからコピーしたもの）
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "your-project.firebaseapp.com",
+      projectId: "your-project-id",
+      storageBucket: "your-project.appspot.com",
+      messagingSenderId: "xxxxxxx",
+      appId: "xxxxxxxxxxx"
+    };
+
+    // 初期化
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+
   <!-- 構造化データ（JSON-LD） -->
   <script type="application/ld+json">
   {
