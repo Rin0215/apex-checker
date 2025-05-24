@@ -61,6 +61,18 @@ document.getElementById("scoreForm").addEventListener("submit", function(e) {
   else if (roundedScore >= 100) { grade = 'E'; gradeClass = 'e'; }
   else { grade = 'F'; gradeClass = 'f'; }
 
+  // Firebase に保存する（全国データ収集）
+  db.collection("scores").add({
+    score: roundedScore,
+    grade: grade,
+    timestamp: new Date()
+  }).then(() => {
+    console.log("✅ Firebase に保存成功");
+  }).catch((error) => {
+    console.error("❌ Firebase 保存エラー:", error);
+  });
+
+
   // スコアとランクを保存する
   const scores = JSON.parse(localStorage.getItem('scores')) || []; // 今までの履歴を取得（なければ空配列）
   scores.push({ score: roundedScore, grade: grade });              // 新しい結果を追加
