@@ -65,7 +65,13 @@ document.getElementById("scoreForm").addEventListener("submit", function(e) {
   db.collection("scores").add({
     score: roundedScore,
     grade: grade,
-    timestamp: new Date()
+    timestamp: new Date(),
+    rankScore: rankScore,
+    top5: top5,
+    wins: wins,
+    games: games,
+    kd: kd,
+    avgDamage: avgDamage
   }).then(() => {
     console.log("✅ Firebase に保存成功");
   }).catch((error) => {
